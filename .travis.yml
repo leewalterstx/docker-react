@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t leewalterstx/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run leewalterstx/docker-react npm run test -- --coverage
